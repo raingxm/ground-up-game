@@ -1,5 +1,21 @@
-var test = require('./testlib');
+var test = function() {
+    collectAllTest(arguments).forEach(function(eachTest) {
+        eachTest();
+        process.stdout.write(".");
+    });
+    console.log();
+};
 
-test('1 should equal 1', function() {
-    test.isEqual(1, 1);
-});
+test.isEqual = function(a, b) {
+    if(a !== b) {
+        throw a + " and " + b + " are not equal, my dear.";
+    }
+}
+
+var collectAllTest = function(args) {
+    return Array.prototype.slice.call(args).filter(function(x, i) {
+        return i % 2 === 1;
+    });
+}
+
+module.exports = test;
