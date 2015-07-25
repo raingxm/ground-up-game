@@ -12,8 +12,8 @@ var httpHandler = function(request, response) {
             response.writeHead(200, {"Content-Type": "text/html"});
             response.end(data);
         });
-    } else if(request.url === '/main.js') {
-        fs.readFile(__dirname + '/main.js', function(err, data) {
+    } else if(request.url === '/client.js') {
+        fs.readFile(__dirname + '/client.js', function(err, data) {
             response.writeHead(200, {"Content-Type": "application/javascript"});
             response.end(data);
         });
