@@ -21,7 +21,6 @@
         ctx: function() {
             return document.getElementById('mysky').getContext('2d');
         },
-
         fillBackground: function(color) {
             var ctx = this.ctx();
             ctx.fillStyle = color;

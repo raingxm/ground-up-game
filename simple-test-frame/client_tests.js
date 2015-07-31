@@ -21,6 +21,12 @@ test("should parse time from server", function() {
         }
       }
     };
-
     client.renderer.fillBackground("blue");
-});
+  },
+  "should draw blue when it is day time", function() {
+    client.renderer.fillBackgroud = function(color) {
+      test.isEqual(color, "blue");
+    };
+    client.displayTime("day");
+  }
+);
